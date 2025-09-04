@@ -1,4 +1,4 @@
-![Project Header]
+![Project Header](https://github.com/mayank1ahuja/sql_upi_project/blob/b749675c9d402b936cf8f3a0d928b7c68003fdf1/project%20header.png)
 
 <h1 align = 'center' > 🤳🏻₹ Merchant Economics for Digital Payments: A Relational Analytics Approach 🤳🏻₹ </h1>
 
@@ -18,16 +18,6 @@ Optimize merchant economics, user monetization and operational risk for a modern
 
 This project demonstrates payments product thinking, ops optimisation, and data-driven policy recommendations.
 
-
-## **Repo Layout**
-```
-├── schema.sql                    
-├── UPI Transactions 2023-24.csv    
-├── visualizations.ipynb          
-└── README.md                     
-```
-
-
 ## **Project Goals**
 1. Demonstrate a repeatable SQL-first pipeline for payments analytics (ingest → stage → normalize → analyze).  
 2. Surface product and ops insights: leakage, merchant profitability, geo adoption, retention, and fraud signals.  
@@ -35,8 +25,8 @@ This project demonstrates payments product thinking, ops optimisation, and data-
 
 
 ## **Dataset**
-- *Source:* [Kaggle]
-- *Dataset:* 
+- *Source:* [Kaggle](https://www.kaggle.com)
+- *Dataset:* [Dataset](https://www.kaggle.com/datasets/priyanshugautam1214/upi-transactions-23-24)
 
 
 ## **Key Design Choices**
@@ -338,6 +328,10 @@ fig.update_traces(texttemplate = '%{text:.2f}', textposition = 'outside')
 fig.update_layout(title = "Top 20 Recipients by Gross Volume", margin = dict(l = 200))
 ```
 
+<p align="center">
+  <img src = "https://github.com/mayank1ahuja/sql_upi_project/blob/b749675c9d402b936cf8f3a0d928b7c68003fdf1/plots/plot1.png">
+</p>
+
 ```python
 # Query: Take Volume and Average Transactions by UPI apps
 query = """
@@ -357,6 +351,11 @@ fig = px.treemap(df, path = ['upi_app'], values = 'gross_volume',
                  hover_data = {'no_of_trans':True, 'avg_trans':True})
 fig.update_layout(title = 'UPI Apps — Share of Volume(Colored by Transactions)')
 ```
+
+<p align="center">
+  <img src = "https://github.com/mayank1ahuja/sql_upi_project/blob/b749675c9d402b936cf8f3a0d928b7c68003fdf1/plots/plot2.png">
+</p>
+
 
 ```python
 # Query: Hour-of-day Activity
@@ -378,6 +377,11 @@ fig.add_trace(go.Scatter(
 ))
 fig.update_layout(title = 'Transactions by Hour of Day', xaxis_title = 'Hour (0-23)', yaxis_title = 'Count')
 ```
+
+<p align="center">
+  <img src = "https://github.com/mayank1ahuja/sql_upi_project/blob/b749675c9d402b936cf8f3a0d928b7c68003fdf1/plots/plot3.png">
+</p>
+
 
 ```python
 # Query: Daily Anomaly Detection using Rolling z-score on Daily Volume
@@ -410,6 +414,11 @@ anoms = d[d['flag'] == 'ANOMALY']
 fig.add_trace(go.Scatter( x = anoms['day'], y = anoms['daily_volume'], mode = 'markers', marker = dict(size = 10, color = 'red', symbol = 'x'), name = 'Anomalies'))
 fig.update_layout(title = 'Daily Volume with Anomalies', xaxis_title = 'Day', yaxis_title = 'Daily volume')
 ```
+
+<p align="center">
+  <img src = "https://github.com/mayank1ahuja/sql_upi_project/blob/b749675c9d402b936cf8f3a0d928b7c68003fdf1/plots/plot4.png">
+</p>
+
 
 ```python
 # Query: Average Transaction and Transaction Frequency by Customer Age Bracket
@@ -444,6 +453,16 @@ fig2 = px.bar(df, x = 'age_bracket', y = 'avg_trans_amount', title = 'Average Tr
 fig1.show()
 fig2.show()
 ```
+
+<p align="center">
+  <img src = "https://github.com/mayank1ahuja/sql_upi_project/blob/b749675c9d402b936cf8f3a0d928b7c68003fdf1/plots/plot5.png">
+</p>
+
+
+<p align="center">
+  <img src = "https://github.com/mayank1ahuja/sql_upi_project/blob/b749675c9d402b936cf8f3a0d928b7c68003fdf1/plots/plot6.png">
+</p>
+
 
 ## **Future Scope**
 - Adding a dedicated `refunds` table and materialized reconciliation views to compute net revenue per merchant.  
