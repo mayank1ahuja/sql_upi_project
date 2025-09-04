@@ -469,10 +469,11 @@ fig2.show()
 - Building a lightweight scorecard (materialized views + triggers) to track leakage & fraud signals automatically.  
 
 ## Reproducibility checklist
-- [ ] PostgreSQL database created and `schema.sql` applied.  
-- [ ] `stg_all` loaded with the provided CSV.  
-- [ ] Normalized tables populated via `INSERT SELECT` blocks.  
-- [ ] Notebook run end-to-end to re-generate visual assets.
+- PostgreSQL database created and `schema.sql` applied.  
+- `stg_all` loaded with the provided CSV.  
+- Normalized tables populated via `INSERT SELECT` blocks.  
+- Notebook run end-to-end to re-generate visual assets.
 
 
 ## **Authon -** *Mayank Ahuja*
+This project is part of my portfolio, demonstrating Python and SQL skills applied to a UPI transactions dataset, highlighting the ability to extract actionable insights from complex datasets.
